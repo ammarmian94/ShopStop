@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
         height: 28,
         width: 28,
     },
+    cartText: {
+        fontFamily: 'Poppins',
+        fontSize: 28,
+        fontWeight: 400
+    },
     appDp: {
         height: 44,
         width: 44,

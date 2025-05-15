@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import {
     heightPercentageToDP as hp, widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
@@ -13,6 +13,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import { CartContext } from '../context/CartContext';
 
 
 
@@ -71,10 +72,35 @@ const BottomTabScreen = React.memo(() => {
                 component={CartScreen}
                 options={{
                     tabBarLabel: 'Cart',
-                    tabBarIcon: ({ size, color }) => (
-                        <MaterialCommunityIcons name="cart" size={size}
-                            color={color} />
-                    ),
+                    tabBarIcon: ({ size, color }) => {
+                        const { carts } = useContext(CartContext)
+                        // console.log("Carts", carts.length)
+                        return (
+                            <View style={{ position: 'relative' }}>
+                                < MaterialCommunityIcons name="cart" size={size}
+                                    color={color} />
+                                <View style={{
+                                    height: 14,
+                                    width: 14,
+                                    borderRadius: 7,
+                                    backgroundColor: color,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    position: 'absolute',
+                                    top: -5,
+                                    right: -5
+                                }}>
+                                    <Text style={{
+                                        fontSize: 10,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: 600,
+                                        color: "#FFFFFF",
+                                        // alignSelf: 'center'
+                                    }}>{carts?.length || 0}</Text>
+                                </View>
+                            </View>
+                        )
+                    },
                 }}
             />
 

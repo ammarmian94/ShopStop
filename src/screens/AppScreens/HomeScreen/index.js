@@ -11,7 +11,7 @@ import data from '../../../data/data.json'
 
 const categories = ['Trending Now', 'All', 'New', 'Men', 'Women']
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [products, setProducts] = useState(data.products)
 
@@ -30,12 +30,13 @@ const HomeScreen = () => {
   return (
     <LinearGradient colors={['#FDF0F3', '#FFFBFC']} style={styles.rootContainer}>
       <View style={styles.innerContainer}>
-        <Header />
+        <Header isHome={true} />
 
         {/* Product List */}
         <FlatList
           numColumns={2}
           data={products}
+          keyExtractor={(item) => item.id}
           ListHeaderComponent={
             <>
               <Text style={styles.matchText}>Match Your Style</Text>

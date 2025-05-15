@@ -11,5 +11,6 @@ export const colors = {
     gray_text: '#938F8F',
 
     // Text Colors
-    price_text: '#9C9C9C'
+    price_text: '#9C9C9C',
+    title: '#444444'
 }

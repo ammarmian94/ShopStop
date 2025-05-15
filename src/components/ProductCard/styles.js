@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 15,
         right: 15
-    }
+    },
+   
 })
 
 export default styles

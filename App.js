@@ -1,10 +1,13 @@
 import { Text, View } from 'react-native'
 import React from 'react'
 import MainStack from './src/navigation/StackNavigation'
+import { CartProvider } from './src/context/CartContext'
 
 const App = () => {
   return (
-    <MainStack />
+    <CartProvider>
+      <MainStack />
+    </CartProvider>
   )
 }
 

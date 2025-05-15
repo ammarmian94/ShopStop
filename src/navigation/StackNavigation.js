@@ -4,6 +4,7 @@ import { StatusBar } from "react-native"
 import SplashScreen from "../screens/AuthScreens/SplashScreen"
 import BottomTabScreen from "./BottomTabNavigation"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
+import ProductDetailsScreen from "../screens/AppScreens/ProductDetailsScreen"
 
 
 const RootStack = createNativeStackNavigator()
@@ -43,6 +44,10 @@ const AfterLoginAppContainer = () => {
             }}
         >
             <RootStack.Screen name="BottomTab" component={BottomTabScreen} />
+            <RootStack.Screen
+                name="ProductDetail"
+                component={ProductDetailsScreen}
+                options={{ gestureEnabled: false }} />
         </RootStack.Navigator>
     )
 }
